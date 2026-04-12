@@ -72,17 +72,13 @@
                 color: white;
                 border-top: solid 1px white;
             }
-
+            .hiddenSideMpont{
+                display: none;
+            }
             #sideMenu{
                 display: none;
-                flex-direction: column;
-
             }
-            #sideMenu a{
-                text-decoration: none;
-                color: white;
-            }
-
+            
             .cMenuHamburger{
                 display: none;
                 flex-direction: column;
@@ -530,6 +526,9 @@
                 .menupont{
                     display: none;
                 }
+                .hiddenSideMpont{
+                    display: flex;
+                }
                 #sideMenu{
                     position: fixed;
                     top: 80px;
@@ -543,10 +542,17 @@
                     gap: 2%;
                     transition: opacity 0.5s ease-in;
                     opacity: 0;
+                    pointer-events: none;
                 }
                 #sideMenu.isOpen{
-                    opacity: 1;;
+                    opacity: 1;
+                    pointer-events: auto;
                 }
+                #sideMenu a{
+                    text-decoration: none;
+                    color: white;
+                }
+
                 .sideMenupont{
                     display: flex;
                     gap: 5px;
@@ -1013,7 +1019,7 @@
         <a href="index.html" class="hiddenSideMpont" id="logoDiv">
             <img src="logo.webp" alt="logo">
         </a>
-        <button type="button" id="menuHamburger" class="cMenuHamburger" aria-label="Menü megnyitása">
+        <button type="button" id="menuHamburger" class="cMenuHamburger hiddenSideMpont" aria-label="Menü megnyitása">
             <span class="menuHamburgerSpan"></span>
             <span class="menuHamburgerSpan"></span>
             <span class="menuHamburgerSpan"></span>
