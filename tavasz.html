@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: "Inter", Arial, sans-serif;
+            }
+
+            .oldal{
+                height: calc(90vh - 90px);
+                z-index: 10;
+            }
+            
+            #toltesFomenu{
+                height: 100px;
+            }
+            #fomenu{
+                position: fixed;
+                z-index: 1000;
+                height: 90px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 0 5%;
+                align-items: center;
+                top: 0;
+                padding-top: 12px;
+                gap: 30px;
+
+                background: white;
+            }
+            #fomenu a{
+                text-decoration: none;
+            }
+
+            #logoWrap{
+                position: absolute;
+                top: 1%;
+                right: 5%;
+                text-decoration: none;
+            }
+
+            #logo{
+                height: 120px;
+                width: auto;
+                display: block;
+                object-fit: contain;
+            }
+            
+            .menupont{
+                height: 70%;
+                width: fit-content;
+                min-width: 150px;
+                padding: 5px 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                color: white;
+                font-size: 0.9rem;
+                /*border-top: solid 1px rgb(185, 177, 177);*/
+                background:
+                    radial-gradient(ellipse 80% 60% at 50% 20%, rgba(96, 180, 140, 0.18), transparent 55%),
+                    radial-gradient(ellipse 100% 80% at 50% 50%, rgba(72, 160, 120, 0.12), transparent 65%),
+                    linear-gradient(180deg, rgb(212, 230, 212) 0%, #071a10 4%, #0a2418 35%, #0e2e1c 50%, #071a10 70%, #041208 100%);
+                border-radius: 20px;
+                padding: 5px 20px;
+                transition: transform 0.7s ease-in;
+            }
+            .menupont:hover{
+                color: white;
+                transform: scale(1.08) translateX(10px);
+            }
+           
+            .nyil{
+                font-size: 1.8rem;
+            }
+
+            .szines{
+                background:
+                    radial-gradient(ellipse 80% 60% at 50% 20%, rgba(96, 180, 140, 0.18), transparent 55%),
+                    radial-gradient(ellipse 100% 80% at 50% 50%, rgba(72, 160, 120, 0.12), transparent 65%),
+                    linear-gradient(180deg, #f8faf8 0%, #071a10 4%, #0a2418 35%, #0e2e1c 50%, #071a10 70%, #041208 100%);
+                color: white;
+            }
+            
+            .feher{
+                background: linear-gradient(to bottom, #06160d 0%,white 4%,white 95%,white 100%);
+                
+            }
+            
+            .shadow_Feher{
+                box-shadow: 40px 35px 20px rgb(201, 195, 195) !important;
+            }
+
+            .szines_Felirat {
+                display: inline-block;
+                background: linear-gradient(to bottom right, #22c55e 0%, #15803d 50%, #166534 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+            }
+            .cimSzoveg_Oldal{
+                display: flex;
+            }
+
+            .cimResz{
+                height: 100%;
+                width: 30%;
+                position: relative;
+                padding: 120px 0 120px 5%;
+                
+            }
+            .sticky{
+                position: sticky;
+                top: 120px;
+            }
+
+            .szovegResz{
+                height: 100%;
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                padding: 120px 15% 5% 5%;
+                gap: 50px;
+                text-align: justify;
+                
+            }
+
+            .kepResz{
+                height: 45%;
+                width: 50%;
+                display: flex;
+                justify-self: center;
+                align-self: center;
+                border-radius: 10%;
+                overflow: hidden;
+                box-shadow: 40px 35px 20px #0a2418;
+                
+            }
+            .kepResz img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            h2{
+                font-family: 'Libre Baskerville', serif;
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            h3{
+                font-family: 'Libre Baskerville', serif;
+                font-size: 1.50rem;
+            }
+
+            .simaSzoveg{
+                font-size: 1.05rem;
+            }
+
+            
+
+            #kapcsolat_Oldal{
+                height: 30vh;
+                width: 100%;
+                padding: 3% 10%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            #kapcsolatSzoveg{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+
+            #elerhetosegek{
+                display: flex;
+                padding: 1% 5%;
+                justify-content: space-evenly
+
+            }
+
+            .egyElerh{
+                height: fit-content;
+                width: fit-content;
+                padding: 1% 5%;
+                border: solid 1px white;
+                border-radius: 10px;
+                font-size: 0.9rem;
+            }
+
+            .egyElerh a{
+                text-decoration: none;
+                color: wheat;
+                display: inline-block;
+                transition: transform 0.7s ease-in;
+            }
+            .egyElerh a:hover{
+                transform: scale(1.08) translateX(10px);
+            }
+
+            #arajanlatOldal{
+                display:  flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 3% 10%;
+            }
+
+            #urlap{
+                width: 50%;
+                display:  flex;
+                flex-direction: column;
+                gap: 20px;
+                margin-top: 2%;
+                /*border: solid 1px rgb(212, 230, 212);*/
+                border-radius: 10px;
+                padding: 1%;
+            }
+
+            .formGroup{
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .formGroup label{
+                color: rgb(226, 236, 226);
+                /*margin-left: 10px;*/
+            }
+
+            .formGroup input{
+                padding: 5px 10px;
+                border-radius: 7px;
+                font-size: 1.0rem;
+            }
+            .formGroup textarea{
+                border-radius: 7px;
+                padding-left: 10px;
+                font-size: 1.0rem;
+            }
+            #btnDiv{
+                text-align: center;
+            }
+            #btnDiv button{
+                padding: 10px;
+                border-radius: 10px;
+                background: rgb(212, 230, 212);
+                font-size: 0.85rem;
+            }
+            #btnDiv button:hover{
+                color: white;
+                background:radial-gradient(ellipse 80% 60% at 50% 20%, rgba(96, 180, 140, 0.18), transparent 55%),radial-gradient(ellipse 100% 80% at 50% 50%, rgba(72, 160, 120, 0.12), transparent 65%),linear-gradient(180deg,  #071a10 0%, #0a2418 35%, #0e2e1c 50%, #071a10 70%, #041208 100%);
+                border: solid 1px rgb(212, 230, 212);
+            }
+
+            @media screen and (max-width: 1049px){
+                .oldal{
+                    height: calc(97vh - 80px);
+                }
+                h2{
+                    font-size: 1.5rem;  /*1.8rem*/
+                    text-align: center;
+                }
+
+                h3{
+                    font-size: 1.10rem; /*1.5*/
+                }
+
+                .simaSzoveg{
+                    font-size: 0.9rem;
+                }
+
+                .cimSzoveg_Oldal .simaSzoveg{
+                    font-size: 0.95rem;
+                }
+
+                .reszletek{
+                    font-size: 0.85rem;
+                }
+                #fomenu{
+                    height: 80px;
+                    padding-top: 7px;
+                    gap: 20px;
+                    
+                }
+                .menupont{
+                    display: none;
+                }
+                #sideMenu{
+                    position: fixed;
+                    top: 80px;
+                    right: 0;
+                    height: calc(100ch - 80px);
+                    width: 70vw;
+                    display: flex;
+                    flex-direction: column;
+                    z-index: 10000;
+                    padding: 2%;
+                    gap: 2%;
+                    transition: opacity 0.5s ease-in;
+                    opacity: 0;
+                }
+                #sideMenu.isOpen{
+                    opacity: 1;;
+                }
+                .sideMenupont{
+                    display: flex;
+                    gap: 5px;
+
+                }
+                #logoDiv{
+                    position: absolute;
+                    top: 0;
+                    left: 5%;
+                    height: 100%;
+                }
+                #logoDiv img{
+                    height: 100%;
+                    width: auto;
+                    
+                }
+                .cMenuHamburger{
+                    display: flex;
+                    position: fixed;
+                    top: 15px;
+                    right: 5%;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 6px;
+                    width: 44px;
+                    height: 44px;
+                    padding: 8px;
+                    border: none;
+                    background: transparent;
+                    color: white;
+                    cursor: pointer;
+                    z-index: 1001;
+                }
+                .menuHamburgerSpan{
+                    display: block;
+                    height: 3px;
+                    width: 100%;
+                    background: white;
+                    border-radius: 2px;
+                    transition: translateY(9px) rotate(45deg);
+                }
+                .cMenuHamburger.isOpen .menuHamburgerSpan:nth-child(1){
+                    transform: translateY(9px) rotate(45deg);
+                }
+                .cMenuHamburger.isOpen .menuHamburgerSpan:nth-child(2){
+                    opacity: 0;
+                }
+                .cMenuHamburger.isOpen .menuHamburgerSpan:nth-child(3){
+                    transform:  translateY(-9px) rotate(-45deg);
+                }
+
+                #arKeres{
+                    padding: 0.5% 1.8%;
+                    bottom: 18%;
+                    left: 0.4%;
+                    border-radius: 12px;
+                    font-size: 0.85rem;
+                }
+
+                .cimSzoveg_Oldal{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    height: auto;
+                    min-height: calc(97vh - 80px);
+                    padding: 4% 2% 10% 2%;
+                }
+
+                .cimResz{
+                    width: 100%;
+                    max-width: 100%;
+                    height: auto;
+                    display: flex;
+                    justify-content: center;
+                    text-align: center;
+                    padding: 5%;
+                }
+
+                .cimResz h2{
+                    width: 100%;
+                }
+
+                .sticky{
+                    position: static;
+                    top: auto;
+                }
+
+                .szovegResz{
+                    width: 100%;
+                    max-width: 88%;
+                    height: auto;
+                    margin: 0 auto;
+                    padding: 0 0 48px;
+                    gap: 24px;
+                    text-align: center;
+                    align-items: center;
+                }
+
+                .szovegResz .simaSzoveg{
+                    text-align: center;
+                }
+
+                .kepResz{
+                    height: auto;
+                    width: (69%);
+                    
+                    margin-top: 8px;
+                }
+
+                .kepResz img{
+                    height: auto;
+                    aspect-ratio: 4 / 3;
+                    object-fit: cover;
+                }
+                #fenntartas_Oldal{
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: 10% 45% 45%;
+                    padding: 4% 5% 2% 5%;
+                }
+                #kertEpitOldal{
+                    
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: 8% 50% 50%;
+                    padding: 5.5% 5% 4% 5%;
+                }
+                #kertEpitOldal .bu_balsarok{
+                    padding-left: 5%;
+                    z-index: 100;
+                }
+
+                .bu_alul{
+                    margin-bottom: 20px;
+                }
+                #kapcsolat_Oldal{
+                    height: auto;
+                    min-height: 30vh;
+                    padding: 5%;
+                }
+
+                #urlap{
+                    width: 75%;
+
+                }
+                .egyElerh{
+                    font-size: 0.75rem;
+                    padding: 1.5% 6%;
+                }
+
+                .formGroup input{
+                    font-size: 0.70rem; /*font-size: 1.0rem;*/
+                }
+                .formGroup textarea{
+                    font-size: 0.70rem; /*font-size: 1.0rem;*/
+                }
+                #btnDiv button{
+                    padding: 10px;
+                    border-radius: 10px;
+                    font-size: 0.65rem;
+                    color: white;
+                    background:radial-gradient(ellipse 80% 60% at 50% 20%, rgba(96, 180, 140, 0.18), transparent 55%),radial-gradient(ellipse 100% 80% at 50% 50%, rgba(72, 160, 120, 0.12), transparent 65%),linear-gradient(180deg,  #071a10 0%, #0a2418 35%, #0e2e1c 50%, #071a10 70%, #041208 100%);
+                    border: solid 1px rgb(212, 230, 212);
+                }
+                #arajanlatOldal > h2{
+                    margin-top: 20px;
+                }
+            }
+
+             @media screen and (max-width: 650px){
+                .oldal{
+                    height: calc(97vh - 70px);
+                }
+                #fomenu{
+                    height: 70px;
+                    padding-top: 7px;
+                }
+                #sideMenu{
+                    top: 70px;
+                    height: calc(100ch - 70px);
+                }
+                h2{
+                    font-size: 1.25rem;  /*1.8rem*/
+                    text-align: center;
+                }
+
+                h3{
+                    font-size: 0.92rem; /*1.5*/
+                }
+                .simaSzoveg{
+                    font-size: 0.7rem ;
+                }
+                .cimSzoveg_Oldal .simaSzoveg{
+                    font-size: 0.7rem;
+                }
+                #arKeres{
+                    padding: 1.5% 2.5%;
+                    border-radius: 8px;
+                    font-size: 0.75rem;
+                }
+
+                #vizionk{
+                    width: 75%;
+                 }
+                .cimSzoveg_Oldal{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 20px;
+                    align-items: center;
+                    height: auto;
+                    min-height: calc(70vh - 70px);
+                    padding: 8% 2% 5% 2%;
+                }
+                
+                .bubble{
+                    width: 95%;
+                }
+                .shadow_Feher{
+                                box-shadow: 30px 25px 12px rgb(201, 195, 195) !important;
+                            }
+
+                .cimResz{
+                    margin-top: 12px;
+                }
+                
+                .kepResz{
+                    width: 77%;
+                }
+
+                #kapcsolat_Oldal{
+                    height: 1100px;
+                    height: auto;
+                    min-height: 30vh;
+                    padding: 10% 5% 5% 5%;
+                    padding: 5%;
+                }
+                .egyElerh{
+                    font-size: 0.7rem;
+                    padding: 1.5% 6%;
+                }
+                #arajanlatOldal > h2{
+                    margin-top: 20px;
+                }
+                #urlap{
+                    width: 87%;
+                    margin-top: 20px;
+                }
+                .formGroup label{
+                    font-size: 0.75rem;
+                }
+                .bubble{
+                    transform-origin: center;
+                    transition: transform 1.5s ease-in-out;
+                }
+                #arKeres{
+                    bottom: 15%;
+                }
+            }
+
+            @media screen and (min-width: 651px) and (max-width: 1049px){
+               
+                #kapcsolat_Oldal{
+                    height: auto;
+                    min-height: 30vh;
+                    padding: 5%;
+                }
+            }
+
+            
+            @media screen and (min-width:1050px) and (max-width: 1500px){
+                h2{
+                    font-size: 1.5rem;  /*1.8rem*/
+                    text-align: center;
+                }
+
+                h3{
+                    font-size: 1.30rem; /*1.5*/
+                }
+
+                .simaSzoveg{
+                    font-size: 0.9rem;
+                }
+
+                .oldal{
+                    height: calc(90vh - 90px);
+                }
+                #fomenu{
+                    height: 90px;
+                    padding-top: 7px;
+                    gap: 20px;
+                }
+
+                .menupont{
+                    height: 50%;
+                    padding: 5px 8px;
+                    min-width: 90px;
+                    font-size: 0.65rem;
+                }
+
+                #arKeres{
+                    padding: 0.5% 2%;
+                    bottom: 20%;
+                    right: 1%;
+                    border-radius: 12px;
+                    font-size: 0.85rem;
+                }
+
+                .cimResz{
+                    width: 30%;
+                    padding: 110px 0 100px 4%; /* 120px 0 120px 5%;   */
+                    
+                }
+                .sticky{
+                    top: 110px; /*120px*/
+                }
+
+                .szovegResz{
+                    height: 100%;
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 110px 12% 5% 5%;   /*padding: 120px 15% 5% 5%; */
+                    gap: 50px;
+                    text-align: justify;
+                    
+                }
+
+                .kepResz{
+                    height: 42%;
+                    width: 70%;
+                    display: flex;
+                    justify-self: center;
+                    align-self: center;
+                    border-radius: 10%;
+                    overflow: hidden;
+                    box-shadow: 40px 35px 20px #0a2418;
+                    
+                }
+                .kepResz img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .egyElerh{
+                    font-size: 0.85rem;
+                }
+
+                .formGroup input{
+                    font-size: 0.80rem; /*font-size: 1.0rem;*/
+                }
+                .formGroup textarea{
+                    font-size: 0.80rem; /*font-size: 1.0rem;*/
+                }
+                #btnDiv button{
+                    padding: 10px;
+                    border-radius: 10px;
+                    background: rgb(212, 230, 212);
+                    font-size: 0.65rem;
+                }
+                
+
+            }
+        </style>
+</head>
+<body>
+    <div id="fomenu">
+        <a href="index.html">
+            <div id="fooldalMenupont" class="menupont">
+                <span class="nyil">↜ </span> főoldal
+            </div>
+        </a>
+
+        <a href="index.html" id="logoWrap">
+            <img src="logo.png" alt="Logo" id="logo">
+        </a>
+    </div>
+   
+
+    <div id="toltesFomenu"></div>
+
+    <div class="oldal szines cimSzoveg_Oldal">
+        <div class="cimResz">
+                <span class="sticky"><h2>A tavasz</h2></span>
+        </div>
+
+        <div id="iroda_Oldal"  class="szovegResz">
+            <p  class="simaSzoveg">
+                A kert tavaszi „felébresztése” az egész évre alapot ad. Először is gondosan eltávolítjuk a téli lombhulladékot és elhalt növényi részeket, hogy megakadályozzuk a kártevők és betegségek áttelelését . 
+                Ezután fellazítjuk és komposzttal dúsítjuk a talajt, hogy a tavaszi hajtásoknak elegendő tápanyag és nedvesség álljon rendelkezésre . Amint az idő melegszik, elvégezzük az ültetéseket és újragyepesítünk, illetve megkezdjük a dús, egészséges növekedést elősegítő rendszeres öntözést és talajápolást.
+            </p>
+           
+            <p class="simaSzoveg">
+                
+            </p>
+           
+            <div class="kepResz shadow_Feher">
+                <img src="tavasz.png" alt="vizión">
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+    <div id="kapcsolat_Oldal" class="feher">
+        <div id="kapcsolatSzoveg">
+            <p>
+                <h2 class="szines_Felirat">Szeretnéd kertedet megújítani vagy új lenyűgöző kertet kialakítani?</h2>
+            </p>
+            <p class="simaSzoveg">
+                Töltsd ki honlapunk Ajánlatkérés űrlapját néhány alapadat megadásával, és szakértő munkatársunkon belül részletes, személyre szabott árajánlatot küldünk. 
+            </p>
+            <p class="simaSzoveg">
+                Elégedett ügyfeleink visszajelzése szerint átlátható és segítőkész ajánlataink megkönnyítik a döntést. Felmérés nélkül is szívesen adunk tanácsot, keress minket elérhetőségeinken, hogy ingyenes konzultáción beszélhessük meg elképzeléseidet!
+            </p>
+        </div>
+        <div id="elerhetosegek">
+            <div id="telefon_Kapcs" class="egyElerh szines">
+                E-mail: <a href="mailto:">figarogarden@gmail.com</a>
+            </div>
+            <div id="telefon_Kapcs" class="egyElerh szines">
+                Telefon: <a href="tel:+36302252652"> +36 30 225 2652</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="arajanlatOldal" class="szines">
+        <h2>Ajánlatkérés</h2>
+        <form id="urlap">
+            <input type="hidden" name="access_key" value="">
+            <input type="hidden" name="subject" value="Árajánlatkérés">
+
+            <div class="formGroup">
+                <label for="nev">Név</label>
+                <input type="text" id="nev" name="name" placeholder="teljes név" required>
+            </div>
+
+            <div class="formGroup">
+                <label for="email">E-mail cím</label>
+                <input type="email" id="email" name="emailCim" placeholder="pelda@gmail.com" required>
+            </div>
+
+            <div class="formGroup">
+                <label for="telefon">Telefonszám</label>
+                <input type="tel" id="telefon" name="telefonszam" placeholder="+36 30 123 4569" required>
+            </div>
+
+            <div class="formGroup">
+                <label for="varos">Város</label>
+                <input type="text" id="varos" name="varos" placeholder="város megnevezése" required>
+            </div>
+
+            <div class="formGroup">
+                <label for="uzenet">Üzenet</label>
+                <textarea id="uzenet" name="uzenet" rows="5" placeholder="Kérem, ide írja az üzenetét..." required></textarea>
+            </div>
+            <div id="btnDiv" >
+                 <button type="submit" id="uzenetkuldoBttn" style="width: 55%;">ÜZENET KÜLDÉSE</button>
+            </div>
+           
+        </form>
+    </div>
+</body>
