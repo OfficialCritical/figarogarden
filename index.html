@@ -1432,19 +1432,35 @@
     })
 </script>
 <script>
+    (function () {
     const arKeres = document.getElementById('arKeres');
     const arajanlatOldal = document.getElementById('arajanlatOldal');
+    const vizionkOldal = document.getElementById('vizionkOldal');
 
-    if(arKeres && arajanlatOldal)
-    {
-        const obs = new IntersectionObserver(
-            ([entry]) => {
-                arKeres.style.opacity = entry.isIntersecting ? '0' : '1';
-                arKeres.style.pointerEvents = entry.isIntersecting ? 'none' : '';
-            },
-            {threshold: 0.3}
-        );
-        obs.observe(arajanlatOldal);
+    if (!arKeres) return;
+
+    const state = { arajanlat: false, vizionk: false };
+
+    function sync() {
+        const hide = state.arajanlat || state.vizionk;
+        arKeres.style.opacity = hide ? '0' : '1';
+        arKeres.style.pointerEvents = hide ? 'none' : '';
     }
+
+    function watch(el, key) {
+        if (!el) return;
+        const obs = new IntersectionObserver(
+        ([entry]) => {
+            state[key] = entry.isIntersecting;
+            sync();
+        },
+        { threshold: 0.25 }
+        );
+        obs.observe(el);
+    }
+
+    watch(arajanlatOldal, 'arajanlat');
+    watch(vizionkOldal, 'vizionk');
+    })();
 </script>
 </body>
