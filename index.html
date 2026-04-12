@@ -725,7 +725,10 @@
                     height: 70px;
                     padding-top: 7px;
                 }
-                
+                #sideMenu{
+                    top: 70px;
+                    height: calc(100ch - 70px);
+                }
                 h2{
                     font-size: 1.25rem;  /*1.8rem*/
                     text-align: center;
@@ -735,9 +738,11 @@
                     font-size: 0.92rem; /*1.5*/
                 }
                 .simaSzoveg{
+                    font-size: 0.7rem ;
+                }
+                .cimSzoveg_Oldal .simaSzoveg{
                     font-size: 0.7rem;
                 }
-
                 #arKeres{
                     padding: 1.5% 2.5%;
                     border-radius: 8px;
@@ -754,8 +759,8 @@
                     gap: 20px;
                     align-items: center;
                     height: auto;
-                    min-height: calc(70vh - 80px);
-                    padding: 5% 2% 5% 2%;
+                    min-height: calc(70vh - 70px);
+                    padding: 8% 2% 5% 2%;
                 }
                 
                 .bubble{
@@ -1264,7 +1269,7 @@
                 E-mail: <a href="mailto:">figarogarden@gmail.com</a>
             </div>
             <div id="telefon_Kapcs" class="egyElerh szines">
-                Telefon: <a href="tel:+36302252652"> +36 30 225 2652</a>
+                Telefon: <a href="tel:+36302252652" style="white-space: nowrap;"> +36 30 225 2652</a>
             </div>
         </div>
     </div>
