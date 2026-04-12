@@ -2,6 +2,7 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
@@ -15,7 +16,9 @@
             body {
                 font-family: "Inter", Arial, sans-serif;
             }
-
+            .oldal{
+                height: calc(90vh - 100px);
+            }
             
             #toltesFomenu{
                 height: 100px;
@@ -114,9 +117,7 @@
                 -webkit-text-fill-color: transparent;
             }
             .cimSzoveg_Oldal{
-                display: flex;
-                height: auto;
-                min-height: calc(95vh - 80px);
+               display: flex;
             }
 
             .cimResz{
@@ -302,7 +303,12 @@
                     gap: 20px;
                     
                 }
-                
+                .menupont{
+                    display: none;
+                }
+                .hiddenSideMpont{
+                    display: flex;
+                }
                 #sideMenu{
                     position: fixed;
                     top: 80px;
@@ -312,14 +318,21 @@
                     display: flex;
                     flex-direction: column;
                     z-index: 10000;
-                    padding: 2%;
+                    padding: 5% 3%;
                     gap: 2%;
                     transition: opacity 0.5s ease-in;
                     opacity: 0;
+                    pointer-events: none;
                 }
                 #sideMenu.isOpen{
-                    opacity: 1;;
+                    opacity: 1;
+                    pointer-events: auto;
                 }
+                #sideMenu a{
+                    text-decoration: none;
+                    color: white;
+                }
+
                 .sideMenupont{
                     display: flex;
                     gap: 5px;
@@ -359,7 +372,7 @@
                     width: 100%;
                     background: white;
                     border-radius: 2px;
-                    transition: translateY(9px) rotate(45deg);
+                    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
                 }
                 .cMenuHamburger.isOpen .menuHamburgerSpan:nth-child(1){
                     transform: translateY(9px) rotate(45deg);
@@ -539,9 +552,51 @@
                 .bubble{
                     width: 95%;
                 }
+                #fenntartas_Oldal{
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    padding: 10% 5% 2% 5%;
+                }
+                #fentartCim{
+                    margin-bottom: 10px;
+                }
+
+                #kertEpitOldal{
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    padding: 19% 5% 4% 5%;
+                }
+                #kertepitCim{
+                    margin-bottom: 10px;
+                }
+
+                #kertEpitOldal .bu_balsarok{
+                    padding-left: 8%;
+                }
+                .bu_alul{
+                    margin-bottom: 20px;
+                }
+                .reszletek{
+                    right: 3%;
+                    bottom: 5%;
+                    padding: 5px 8px;
+                    font-size: 0.75rem;
+                }
+                
                 .shadow_Feher{
                                 box-shadow: 30px 25px 12px rgb(201, 195, 195) !important;
                             }
+                .delayClass{
+                    transition-delay: 0s;
+                }
+                #fenntartas_Oldal.isOpen > .bubble:nth-child(2) { transition-delay: 0s; }
+                #fenntartas_Oldal.isOpen > .bubble:nth-child(3) { transition-delay: 1.5s; }
+                #fenntartas_Oldal.isOpen > .bubble:nth-child(4) { transition-delay: 3s; }
+                #fenntartas_Oldal.isOpen > .bubble:nth-child(5) { transition-delay: 4.5s; }
 
                 .cimResz{
                     margin-top: 12px;
@@ -582,7 +637,27 @@
             }
 
             @media screen and (min-width: 651px) and (max-width: 1049px){
-               
+                #fenntartas_Oldal{
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: 10% 45% 45%;
+                    padding: 4% 2% 2% 2%;
+                }
+                #kertEpitOldal{
+                    
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: 5% 50% 50%;
+                    padding: 5.9% 2% 4% 2%;
+                }
+
+                .bubble{
+                    height: 95%;
+                    width: 92%;
+                }
+                .bu_alul{
+                    margin-bottom: 10px;
+                }
                 #kapcsolat_Oldal{
                     height: auto;
                     min-height: 30vh;
@@ -664,6 +739,29 @@
                     height: 100%;
                     width: 100%;
                     object-fit: cover;
+                }
+
+                #fenntartas_Oldal{
+                    padding: 4% 2% 2% 2%; /* 3% 5% 2% 5%;*/
+                }
+                .bubble{
+                    height: 90%;
+                    width: 85%; /*  80%;*/
+                }
+                .reszletek{
+                    padding: 7px 12px;
+                    font-size: 0.82rem; /*0.9rem*/
+                }
+
+                #kertEpitOldal{
+                    
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: auto 50% 50%;
+                    padding: 4% 2% 4% 2%; /*3% 5% 4% 5%*/
+                }
+                #kertepitCim{
+                    padding-bottom: 5px; /* nem volt */
                 }
 
                 .egyElerh{
