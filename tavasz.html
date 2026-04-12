@@ -16,10 +16,6 @@
                 font-family: "Inter", Arial, sans-serif;
             }
 
-            .oldal{
-                height: calc(90vh - 90px);
-                z-index: 10;
-            }
             
             #toltesFomenu{
                 height: 100px;
@@ -27,7 +23,7 @@
             #fomenu{
                 position: fixed;
                 z-index: 1000;
-                height: 90px;
+                height: 100px;
                 width: 100%;
                 display: flex;
                 flex-direction: row;
@@ -44,22 +40,23 @@
                 text-decoration: none;
             }
 
-            #logoWrap{
+            #logoMezo{
+                height: 100%;
                 position: absolute;
                 top: 1%;
                 right: 5%;
                 text-decoration: none;
             }
 
-            #logo{
-                height: 120px;
+            #logoMezo img{
+                height: 120%;
                 width: auto;
                 display: block;
-                object-fit: contain;
+                object-fit: cover;
             }
             
             .menupont{
-                height: 70%;
+                height: 50%;
                 width: fit-content;
                 min-width: 150px;
                 padding: 5px 10px;
@@ -82,16 +79,20 @@
                 color: white;
                 transform: scale(1.08) translateX(10px);
             }
-           
+            #fooldalMenupont{
+                display:  flex;
+                gap: 5px;
+            }
             .nyil{
                 font-size: 1.8rem;
+                margin-bottom: 5px;
             }
 
             .szines{
                 background:
                     radial-gradient(ellipse 80% 60% at 50% 20%, rgba(96, 180, 140, 0.18), transparent 55%),
                     radial-gradient(ellipse 100% 80% at 50% 50%, rgba(72, 160, 120, 0.12), transparent 65%),
-                    linear-gradient(180deg, #f8faf8 0%, #071a10 4%, #0a2418 35%, #0e2e1c 50%, #071a10 70%, #041208 100%);
+                    linear-gradient(180deg, #f8faf8 0%, #071a10 5.9%, #0a2418 35%, #0e2e1c 50%, #071a10 70%, #041208 100%);
                 color: white;
             }
             
@@ -114,10 +115,12 @@
             }
             .cimSzoveg_Oldal{
                 display: flex;
+                height: auto;
+                min-height: calc(95vh - 80px);
             }
 
             .cimResz{
-                height: 100%;
+                
                 width: 30%;
                 position: relative;
                 padding: 120px 0 120px 5%;
@@ -692,8 +695,8 @@
             </div>
         </a>
 
-        <a href="index.html" id="logoWrap">
-            <img src="logo.webp" alt="Logo" id="logo">
+        <a href="index.html" id="logoMezo">
+            <img src="logo.webp" alt="Logo" >
         </a>
     </div>
    
@@ -705,15 +708,13 @@
                 <span class="sticky"><h2>A tavasz</h2></span>
         </div>
 
-        <div id="iroda_Oldal"  class="szovegResz">
+        <div class="szovegResz">
             <p  class="simaSzoveg">
                 A kert tavaszi „felébresztése” az egész évre alapot ad. Először is gondosan eltávolítjuk a téli lombhulladékot és elhalt növényi részeket, hogy megakadályozzuk a kártevők és betegségek áttelelését . 
                 Ezután fellazítjuk és komposzttal dúsítjuk a talajt, hogy a tavaszi hajtásoknak elegendő tápanyag és nedvesség álljon rendelkezésre . Amint az idő melegszik, elvégezzük az ültetéseket és újragyepesítünk, illetve megkezdjük a dús, egészséges növekedést elősegítő rendszeres öntözést és talajápolást.
             </p>
            
-            <p class="simaSzoveg">
-                
-            </p>
+
            
             <div class="kepResz shadow_Feher">
                 <img src="tavasz.webp" alt="vizión">
