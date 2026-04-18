@@ -167,7 +167,7 @@
             #vizionk{
                 z-index: 1000;
                 width: 50%;
-                padding: 2%;
+                padding: 5% 7%;
                 display: flex;
                 flex-direction: column;
                 gap: 40px;
@@ -307,6 +307,7 @@
                 display: flex;
                 align-items:  center;
                 padding-left: 20%;
+                z-index: 100;
             }
 
             .bu_jobbsarok{
@@ -683,7 +684,7 @@
                 }
                 #kertEpitOldal .bu_balsarok{
                     padding-left: 5%;
-                    z-index: 100;
+                    
                 }
 
                 .bu_alul{
@@ -745,6 +746,9 @@
                 }
                 .simaSzoveg{
                     font-size: 0.7rem ;
+                }
+                #vizionkOldal .simaSzoveg{
+                    font-size: 0.8rem ;
                 }
                 .cimSzoveg_Oldal .simaSzoveg{
                     font-size: 0.7rem;
@@ -1004,7 +1008,22 @@
 
             }
 
-            
+            @media screen and (min-height:1050px) and (max-width: 1500px){
+                h2{
+                    font-size: 1.7rem;  /*1.8rem*/
+                    text-align: center;
+                }
+
+                h3{
+                    font-size: 1.50rem; /*1.5*/
+                }
+
+                .simaSzoveg{
+                    font-size: 1.2rem;
+                }
+
+            }
+
     </style>
 </head>
 <body>
