@@ -7,8 +7,75 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <title>Figaro Garden</title>
+
     <link rel="icon" href="logo.webp" type="image/webp">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://figarogarden.hu/#website",
+      "url": "https://figarogarden.hu/",
+      "name": "Figaro Garden",
+      "inLanguage": "hu-HU"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://figarogarden.hu/#webpage",
+      "url": "https://figarogarden.hu/",
+      "name": "Figaro Garden - Kertépítés és kertfenntartás",
+      "isPartOf": {
+        "@id": "https://figarogarden.hu/#website"
+      },
+      "about": {
+        "@id": "https://figarogarden.hu/#business"
+      },
+      "inLanguage": "hu-HU"
+    },
+    {
+      "@type": "LandscapingBusiness",
+      "@id": "https://figarogarden.hu/#business",
+      "name": "Figaro Garden",
+      "url": "https://figarogarden.hu/",
+      "email": "figarogarden@gmail.com",
+      "telephone": "+36302252652",
+      "image": "https://figarogarden.hu/logof.webp",
+      "logo": "https://figarogarden.hu/logof.webp",
+      "description": "Kertépítés, kertfenntartás, irodai növényesítés, favágás/alpintechnika és öntözőrendszerek tervezése-kivitelezése Magyarországon.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Magyarország"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+36302252652",
+          "email": "figarogarden@gmail.com",
+          "areaServed": "HU",
+          "availableLanguage": ["hu"]
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Szolgáltatások",
+        "itemListElement": [
+          { "@type": "OfferCatalog", "name": "Kertfenntartás" },
+          { "@type": "OfferCatalog", "name": "Kertépítés" },
+          { "@type": "OfferCatalog", "name": "Irodai növényesítés" },
+          { "@type": "OfferCatalog", "name": "Favágás és alpintechnika" },
+          { "@type": "OfferCatalog", "name": "Öntözőrendszerek" }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
         <style>
             *{
                 margin: 0;
@@ -571,6 +638,19 @@
                     width: auto;
                     
                 }
+
+                #feliratKozep{
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    color: white;
+                    text-decoration: none;
+                    display: flex;
+                    text-align: center;
+                    font-family: 'Libre Baskerville';
+                }
+
                 .cMenuHamburger{
                     display: flex;
                     position: fixed;
@@ -1044,6 +1124,10 @@
         <a href="index.html" class="hiddenSideMpont" id="logoDiv">
             <img src="logo.webp" alt="logo">
         </a>
+        <div href="index.html" class="hiddenSideMpont" id="feliratKozep">
+            Kertfenntartás<br>
+            és kertépítés
+        </div>
         <button type="button" id="menuHamburger" class="cMenuHamburger hiddenSideMpont" aria-label="Menü megnyitása">
             <span class="menuHamburgerSpan"></span>
             <span class="menuHamburgerSpan"></span>
