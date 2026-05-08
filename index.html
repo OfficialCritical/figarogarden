@@ -1155,10 +1155,12 @@
         <div id="vizionk"  class="">
             <p id="elsoVizio" class="simaSzoveg">
                 Célunk olyan kertek létrehozása, amelyek egyszerre egyediek, élvezhetők és funkcionálisak. Hiszünk abban, hogy a kert nemcsak szép díszlet, hanem élő ökoszisztéma is lehet: növényeinkkel segítjük a beporzókat (méheket, pillangókat) és a madarakat, így növeljük a biodiverzitást és a természetes kártevő-ellenőrzést
-            </p>
-            <p id="masodikVizio" class="simaSzoveg">
+                <br>
+                <br>
                 Cégünk vállalja magán- és vállalati ügyfelek teljes körű ellátását, Magyarország bármely pontján. Akár egy zöld, funkcionális játszóteret, akár letisztult, elegáns díszkertet szeretnél – csapatunk minden igényt magas színvonalon kiszolgál.
+            
             </p>
+
         </div>
     </div>
 
@@ -1251,7 +1253,7 @@
             </div>
             <div class="bu_alul">
                 <p class="simaSzoveg">
-                    Ma már nem elegendő pusztán szép kerteket építeni: egy jól tervezett kert támogatja a természetes ökoszisztémát is. Különösen fontos, hogy...
+                    Az állatbarát kertépítés célja, hogy a kert ne csak esztétikus és praktikus legyen, hanem biztonságos, természetközeli életteret biztosítson...
                 </p>
             </div>
             <a href="allatbaratkertek.html">
@@ -1405,18 +1407,18 @@
 
     <div id="arajanlatOldal" class="szines">
         <h2>Ajánlatkérés</h2>
-        <form id="urlap">
-            <input type="hidden" name="access_key" value="">
+        <form id="urlap" action="https://api.web3forms.com/submit" method="post">
+            <input type="hidden" name="access_key" value="d0602500-3ece-48c6-86db-bef88bbcda5d">
             <input type="hidden" name="subject" value="Árajánlatkérés">
 
             <div class="formGroup">
                 <label for="nev">Név</label>
-                <input type="text" id="nev" name="name" placeholder="teljes név" required>
+                <input type="text" id="nev" name="Ugyfelnev" placeholder="teljes név" required>
             </div>
 
             <div class="formGroup">
                 <label for="email">E-mail cím</label>
-                <input type="email" id="email" name="emailCim" placeholder="pelda@gmail.com" required>
+                <input type="email" id="email" name="Email" placeholder="pelda@gmail.com" required>
             </div>
 
             <div class="formGroup">
@@ -1585,5 +1587,49 @@
     watch(arajanlatOldal, 'arajanlat');
     watch(vizionkOldal, 'vizionk');
     })();
+</script>
+<script>
+   (function () {
+  const form = document.getElementById('urlap');
+  const btn = document.getElementById('uzenetkuldoBttn');
+  if (!form || !btn) return;
+
+  const alapFelirat = btn.textContent.trim();
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const accessKey = form.querySelector('input[name="access_key"]')?.value;
+    if (!accessKey) {
+      alert('Hiányzik a Web3Forms access key.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Küldés folyamatban…';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        btn.textContent = 'Sikeres küldés';
+        form.reset();
+        
+      } else {
+        btn.textContent = alapFelirat;
+        btn.disabled = false;
+        alert(data.message || 'Sikertelen küldés.');
+      }
+    } catch (err) {
+      btn.textContent = alapFelirat;
+      btn.disabled = false;
+      alert('Hálózati hiba, kérlek próbáld újra.');
+    }
+  });
+})();
 </script>
 </body>
